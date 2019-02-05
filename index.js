@@ -7,8 +7,7 @@ const used = new Set();
 
 const client = new Discord.Client();
 
-
-const config = require("./config.json");
+const prefix = "+"
 
 
 client.on("ready", () => {
@@ -36,10 +35,10 @@ client.on("message", async message => {
   if(message.author.bot) return;
   
 
-  if(message.content.indexOf(config.prefix) !== 0) return;
+  if(message.content.indexOf(prefix) !== 0) return;
   
 
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
 
